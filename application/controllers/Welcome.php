@@ -4,7 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Welcome extends CI_Controller
 {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -22,14 +21,12 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-		/* $this->load->helper('url'); */
 		$this->load->view('view');
 	}
 	public function get_status()
 	{
 		$pnr = $_GET['pnr'];
 		$url = 'https://real-time-pnr-status-api-for-indian-railways.p.rapidapi.com/indianrail/' . $pnr;
-		$this->load->library('Guzzleclient');
 
 		$client = new \GuzzleHttp\Client();
 
@@ -39,9 +36,7 @@ class Welcome extends CI_Controller
 				'X-RapidAPI-Key' => 'b2a00d00a5msh10db23cbb5c7053p10aa46jsn6773b35273e2',
 			],
 		]);
-
 		echo $response->getBody();
-
 	}
 }
 ?>

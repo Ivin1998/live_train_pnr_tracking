@@ -1,15 +1,20 @@
 <html>
+
 <head>
 	<title>PNR Status</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url('assets/styles.css') ?>">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="<?php echo base_url('assets/validations.js') ?>"></script>
 </head>
+<div class="loading"></div>
 <body style="background-color:#ebebeb">
+
 	<div class="row" style="margin-top:10%">
+	
 		<div class="container">
 			<div class="col col-md-12">
-			<img src="<?php ?>" alt="My Image">
-
+				<img src="<?php echo base_url('assets/rail.gif') ?>" alt="My Image">
 				<h3 class="text-center bg-primary" style="padding: 7px;">
 					Passenger Current Status Enquiry
 				</h3>
@@ -46,26 +51,5 @@
 		</div>
 	</div>
 </body>
-<script>
-	$(document).ready(function () {
-		$('#status').click(function () {
-			var pnr = $('.pnr').val();
-			$.ajax({
-				url: 'index.php/welcome/get_status',
-				dataType: "JSON",
-				data: { pnr: pnr },
-				success: function (data) {
-					$('.train_name').html(data.trainName);
-					$('.train_number').html(data.trainNumber);
-					$('.journey_date').html(data.dateOfJourney);
-					$('.distance').html(data.distance);
-					$('.numberofpassengers').html(data.numberOfpassenger);
-					$('.boardingPoint').html(data.boardingPoint);
-					$('.reservationUpto').html(data.reservationUpto);
-					$('.chartStatus').html(data.chartStatus);
-				}
-			});
-		});
-	});
-</script>
+
 </html>
